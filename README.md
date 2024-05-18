@@ -30,6 +30,7 @@ This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus
     sudo apt update
     sudo apt install jenkins -y
     ```
+![Screenshot from 2024-05-18 23-10-37](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/32dce16f-1325-40a9-bf49-7895988960a8)
 
 ### Step 2: Start Jenkins
 
