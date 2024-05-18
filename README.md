@@ -3,6 +3,10 @@
 ## Overview
 This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus Repository, and Tomcat on AWS. We will deploy four AWS instances in different availability zones for this project.
 
+
+![jenkinsCI](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/f7a591a2-caaa-4d87-9078-fcafac8d86fc)
+
+
 ### AWS Instances:
 - **Jenkins server**: t2.micro, Ubuntu Linux, ap-south-1b
 - **SonarQube server**: t2.small, Ubuntu Linux, ap-south-1a
