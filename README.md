@@ -269,63 +269,44 @@ You have successfully installed and configured Apache Tomcat 9.0.65 on your Ubun
 2. **Create a new Jenkins pipeline job and add the following pipeline script:**
 
     ```groovy
-    pipeline {
-        agent any
-
-        stages {
-            stage('Clone Repository') {
-                steps {
-                    git 'https://github.com/your-repo.git'
-                }
-            }
-
-            stage('Maven Build') {
-                steps {
-                    script {
-                        withMaven(maven: 'Maven 3.6.3') {
-                            sh 'mvn clean install'
-                        }
-                    }
-                }
-            }
-
-            stage('Code Review with SonarQube') {
-                steps {
-                    withSonarQubeEnv('SonarQube') {
-                        sh 'mvn sonar:sonar'
-                    }
-                }
-            }
-
-            stage('Upload Artifact to Nexus') {
-                steps {
-                    nexusArtifactUploader(
-                        nexusVersion: 'nexus3',
-                        protocol: 'http',
-                        nexusUrl: 'nexus-url',
-                        groupId: 'your.group.id',
-                        version: '1.0.0',
-                        repository: 'your-repo',
-                        credentialsId: 'nexus-credentials',
-                        artifacts: [
-                            [artifactId: 'your-artifact', classifier: '', file: 'target/your-artifact.war', type: 'war']
-                        ]
-                    )
-                }
-            }
-
-            stage('Deploy to Tomcat') {
-                steps {
-                    deploy adapters: [tomcat9(
-                        credentialsId: 'tomcat-credentials',
-                        path: '',
-                        url: 'http://tomcat-server:8080'
-                    )], contextPath: '/', war: 'target/your-artifact.war'
-                }
-            }
-        }
+    node{
+    
+    stage('clone repo'){
+        git credentialsId: 'b871f6a8-0a2c-4270-8579-7e8977fd9690', url: 'https://github.com/cloudybdone/maven-web-app.git'
     }
-    ```
+    
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+    }
+    
+    stage('Code Review'){
+        withSonarQubeEnv('Sonar-9.0.1'){
+            def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+            def mavenCMD = "${mavenHome}/bin/mvn"
+            sh "${mavenCMD} sonar:sonar"
+    }
+        
+    }
+    
+    stage('Upload Artifact'){
+        nexusArtifactUploader artifacts: [[artifactId: '01-maven-web-app', classifier: '', file: 'target/maven-web-app.war', type: 'war']], credentialsId: 'nexus-cred2', groupId: 'in.ashokit', nexusUrl: '13.234.32.2:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myMavenProject', version: '1.0-SNAPSHOT'
+    }
+    
+    stage('Deploy'){
+        
+        sshagent(['Tomcat-Agent']) {
+          sh 'scp -o StrictHostKeyChecking=no target/maven-web-app.war root@52.66.235.200:/opt/apache-tomcat-9.0.65/webapps'
+}
+        
+        
+    }
+    
+    
+    
+}
+```
 
 ## Conclusion
 
