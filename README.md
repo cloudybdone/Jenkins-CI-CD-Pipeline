@@ -269,44 +269,45 @@ You have successfully installed and configured Apache Tomcat 9.0.65 on your Ubun
 2. **Create a new Jenkins pipeline job and add the following pipeline script:**
 
     ```groovy
-    node{
+node {
     
-    stage('clone repo'){
+    stage('Clone Repo') {
         git credentialsId: 'b871f6a8-0a2c-4270-8579-7e8977fd9690', url: 'https://github.com/cloudybdone/maven-web-app.git'
     }
     
-    stage('Maven Build'){
+    stage('Maven Build') {
         def mavenHome = tool name: "Maven-3.9.6", type: "maven"
         def mavenCMD = "${mavenHome}/bin/mvn"
         sh "${mavenCMD} clean package"
     }
     
-    stage('Code Review'){
-        withSonarQubeEnv('Sonar-9.0.1'){
+    stage('Code Review') {
+        withSonarQubeEnv('Sonar-9.0.1') {
             def mavenHome = tool name: "Maven-3.9.6", type: "maven"
             def mavenCMD = "${mavenHome}/bin/mvn"
             sh "${mavenCMD} sonar:sonar"
-    }
-        
-    }
-    
-    stage('Upload Artifact'){
-        nexusArtifactUploader artifacts: [[artifactId: '01-maven-web-app', classifier: '', file: 'target/maven-web-app.war', type: 'war']], credentialsId: 'nexus-cred2', groupId: 'in.ashokit', nexusUrl: '13.234.32.2:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myMavenProject', version: '1.0-SNAPSHOT'
+        }
     }
     
-    stage('Deploy'){
-        
+    stage('Upload Artifact') {
+        nexusArtifactUploader artifacts: [[artifactId: '01-maven-web-app', classifier: '', file: 'target/maven-web-app.war', type: 'war']], 
+                               credentialsId: 'nexus-cred2', 
+                               groupId: 'in.ashokit', 
+                               nexusUrl: '13.234.32.2:8081', 
+                               nexusVersion: 'nexus3', 
+                               protocol: 'http', 
+                               repository: 'myMavenProject', 
+                               version: '1.0-SNAPSHOT'
+    }
+    
+    stage('Deploy') {
         sshagent(['Tomcat-Agent']) {
-          sh 'scp -o StrictHostKeyChecking=no target/maven-web-app.war root@52.66.235.200:/opt/apache-tomcat-9.0.65/webapps'
-}
-        
-        
+            sh 'scp -o StrictHostKeyChecking=no target/maven-web-app.war root@52.66.235.200:/opt/apache-tomcat-9.0.65/webapps'
+        }
     }
-    
-    
-    
 }
-```
+
+
 
 ## Conclusion
 
