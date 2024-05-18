@@ -163,7 +163,7 @@ This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus
     sudo systemctl enable nexus
     ```
 
-Stage 4: Install and Configure Tomcat Server For App Deployment
+## Stage 4: Install and Configure Tomcat Server For App Deployment
 
 ## Overview
 This guide provides step-by-step instructions to install and configure Apache Tomcat 9.0.65 on an Ubuntu server.
