@@ -81,6 +81,7 @@ This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus
     sudo adduser --system --no-create-home --group --disabled-login sonarqube
     sudo chown -R sonarqube:sonarqube /opt/sonarqube
     ```
+![Screenshot from 2024-05-18 21-33-12](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/407847ec-af5f-4044-9a69-fcc39ca5445d)
 
 3. **Configure SonarQube to run as a service:**
     ```sh
@@ -127,6 +128,8 @@ This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus
     sudo mv nexus-3.29.2-02 /opt/nexus
     ```
 
+    ![Screenshot from 2024-05-18 21-35-58](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/b47b1d9a-dc30-4956-ade3-cba944634c4d)
+
 2. **Create a new user for Nexus:**
     ```sh
     sudo adduser --system --no-create-home --group --disabled-login nexus
@@ -170,6 +173,8 @@ This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus
 
 ## Overview
 This guide provides step-by-step instructions to install and configure Apache Tomcat 9.0.65 on an Ubuntu server.
+
+![Screenshot from 2024-05-18 22-58-20](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/6edffabc-d225-4091-bd0e-8566c182d9b6)
 
 ## Installation Steps
 
