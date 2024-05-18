@@ -274,6 +274,8 @@ You have successfully installed and configured Apache Tomcat 9.0.65 on your Ubun
     - SonarQube Scanner for Jenkins
     - Nexus Artifact Uploader
 
+![Screenshot from 2024-05-18 23-23-17](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/0497e78e-7786-4a12-98ea-6635d05bb541)
+
 2. **Create a new Jenkins pipeline job and add the following pipeline script:**
    
  ```groovy
@@ -316,7 +318,7 @@ You have successfully installed and configured Apache Tomcat 9.0.65 on your Ubun
 }
  ```
 
-
+![CI-CD-Job](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/c81dced6-e2c2-41e2-8aaa-1d9214042af7)
 
 ## Conclusion
 
