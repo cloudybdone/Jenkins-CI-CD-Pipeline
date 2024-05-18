@@ -9,7 +9,7 @@ This guide will help you set up a CI/CD pipeline using Jenkins, SonarQube, Nexus
 - **Nexus-repo server**: t2.small, Ubuntu Linux, ap-south-1b
 - **Tomcat server**: t2.micro, Ubuntu Linux, ap-south-1a
 
-  https://private-user-images.githubusercontent.com/94634991/331817520-156cc61f-1454-45a6-b05d-fc5bfbde09df.jpeg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTYwNTIxNDEsIm5iZiI6MTcxNjA1MTg0MSwicGF0aCI6Ii85NDYzNDk5MS8zMzE4MTc1MjAtMTU2Y2M2MWYtMTQ1NC00NWE2LWIwNWQtZmM1YmZiZGUwOWRmLmpwZWc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUxOFQxNzA0MDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iZWZkY2NkYjU0MGZjODQ1OGIyYmM2NDcyMTZkY2VmN2FiNDU0MDNmMmM5OWQ2ZWVlYTZjNThlYTE3YjNmYzI0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.BrVyTJ6iuIZArIIqRa_WNQt8I7Jnus2Yhg4MBg3U1_o
+ ![CI-CD-Pipeline5](https://github.com/cloudybdone/Jenkins-CI-CD-Pipeline/assets/94634991/156cc61f-1454-45a6-b05d-fc5bfbde09df)
 
 ## Stage 1: Install and Configure Jenkins Server
 
